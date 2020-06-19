@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>jQuery Calculator</title>
+  <meta charset="UTF-8">
+  <title>jQuery Calculator</title>
 
-    <!-- Added link to the jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Added a link to Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <!-- Added a link to our external stylesheet-->
-    <link rel="stylesheet" href="style.css">
+  <!-- Added a link to our external stylesheet-->
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<!-- Jumbotron for Title -->
-<div class="jumbotron">
+  <!-- Jumbotron for Title -->
+  <div class="jumbotron">
     <h1 class="text-center">jQuery Calculator</h1>
     <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
-</div>
+  </div>
 
-<div class="container">
+  <div class="container">
 
     <div class="row">
 
@@ -73,16 +75,52 @@
     </div>
   </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-$(document).ready(function() {
+    $(document).ready(function () {
 
-// Your code here...
+      // Your code here...
+      // make variables for all inputs 
+      var num1 = 0;
+      var num2 = 0;
+      var operator = '';
+      var result = 0;
+      var isOperatorChosen = false;
+
+      //add event listeners to all number buttons 
+      $('.number').on('click', function() {
+        console.log($(this).val());
+
+        //conditions for number entry 
+        //this is saying if the operator is chosen then we are on num2 and if it is not chosen then we are obviously still on num1
+        if (isOperatorChosen) {
+          num2 += $(this).val();
+          $("#second-number").text(num2);
+        }else {
+          num1 += $(this).val();
+          $("#first-number").text(num1);
+        }
+      })
+
+      //add event listener to operator buttons 
+      $('.operator').on('click', function(){
+        
+      })
+      //when operator is clicked make sure num1 has already been selected 
+      //if num1 isnt selected then do not print operator 
+
+      //if num1 has been selected then its ok to bring the operator in 
+      //record the operator value in the result box 
+
+      
+      
+    });
 
 
-});
+  
 
-</script>
+  </script>
 
 </body>
+
 </html>
